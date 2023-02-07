@@ -1,4 +1,4 @@
-<h1 align="center">xplorando Marte</h1>
+<h1 align="center">Explorando Marte</h1>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://luizpaulo.eng.br" target="_blank">

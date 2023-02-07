@@ -5,6 +5,9 @@
   </a>
 </p>
 
+![image](https://user-images.githubusercontent.com/61104411/217392156-54d05e89-00c8-433b-8852-b5b90c3c996e.png)
+
+
 **Descrição**
 Este projeto tem como objetivo construir um programa em javascript para pousar uma sonda em Marte. O programa deverá ler uma entrada com as coordenadas do planalto retangular e as posições iniciais das sondas, e em seguida, processar as instruções para cada uma das sondas.
 
@@ -25,11 +28,13 @@ Esse projeto foi desenvolvido com a seguinte técnologias:
 # Clone o repositório
 git clone https://github.com/limaluizpaulo/Explorando-Marte/
 
-# Entre no diretório
-cd Explorando-Marte/
+# Abra o diretório
 
-# Execute o arquivo index.js
-node index.js
+# Execute o arquivo index.html
+
+# Importe o arquivo de instruções
+modelo disponivel em ./input.txt
+
 
 ```
 

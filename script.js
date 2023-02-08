@@ -62,7 +62,8 @@ file.addEventListener("change", function () {
   const reader = new FileReader();
   reader.onload = function () {
     const lines = reader.result.split("\n");
-    const map = lines[0].split(" ");
+    const mapHover1 = lines[0].split(" ");
+    const mapHover2 = lines[2].split(" ");
     const sonda1 = new Sonda(
       parseInt(lines[1].split(" ")[0]),
       parseInt(lines[1].split(" ")[1]),
@@ -82,8 +83,11 @@ file.addEventListener("change", function () {
     mapa.classList.remove("hidden");
 
     // definir o tamanho do mapa
-    mapa.style.width = `${parseInt(map[0]) * 50}px`;
-    mapa.style.height = `${parseInt(map[1]) * 50}px`;
+    const widthMap = mapHover1[0] > mapHover2[0] ? mapHover1[0] : mapHover2[0];
+    const heightMap = mapHover1[1] > mapHover2[1] ? mapHover1[1] : mapHover2[1];
+
+    mapa.style.width = `${parseInt(widthMap) * 50}px`;
+    mapa.style.height = `${parseInt(heightMap) * 50}px`;
 
     // criar o grid do mapa
     const square = document.createElement("div");

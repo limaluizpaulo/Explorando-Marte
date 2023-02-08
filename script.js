@@ -82,8 +82,8 @@ file.addEventListener("change", function () {
     mapa.classList.remove("hidden");
 
     // definir o tamanho do mapa
-    mapa.style.width = `${(parseInt(map[0]) + 1) * 50}px`; // 50px é o tamanho de cada quadrado, o +1 é para que o último quadrado seja mostrado
-    mapa.style.height = `${(parseInt(map[1]) + 1) * 50}px`;
+    mapa.style.width = `${parseInt(map[0]) * 50}px`;
+    mapa.style.height = `${parseInt(map[1]) * 50}px`;
 
     // criar o grid do mapa
     const square = document.createElement("div");

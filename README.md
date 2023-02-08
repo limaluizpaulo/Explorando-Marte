@@ -4,8 +4,8 @@
   <a href="https://luizpaulo.eng.br" target="_blank">
   </a>
 </p>
+![image](https://user-images.githubusercontent.com/61104411/217400576-9f58f5f2-ffc8-4754-a825-f32e9c9e680a.png)
 
-![image](https://user-images.githubusercontent.com/61104411/217392156-54d05e89-00c8-433b-8852-b5b90c3c996e.png)
 
 
 **Descrição**

@@ -100,12 +100,12 @@ file.addEventListener("change", function () {
     // definir a posição da sonda 1
     const hover1 = document.getElementById("hover1");
     hover1.style.left = `${(sonda1.x - 1) * 50}px`; // 50px é o tamanho de cada quadrado, o -1 é para que a sonda fique no centro do quadrado
-    hover1.style.top = `${(sonda1.y - 1) * 50}px`;
+    hover1.style.bottom = `${(sonda1.y - 1) * 50}px`;
 
     // definir a posição da sonda 2
     const hover2 = document.getElementById("hover2");
     hover2.style.left = `${(sonda2.x - 1) * 50}px`;
-    hover2.style.top = `${(sonda2.y - 1) * 50}px`;
+    hover2.style.bottom = `${(sonda2.y - 1) * 50}px`;
 
     // definir a rotação da sonda 1
     switch (sonda1.direction) {

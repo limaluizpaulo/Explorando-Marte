@@ -60,29 +60,23 @@ class Sonda {
 
 // leitura do arquivo de entrada
 const file = document.getElementById("file");
-const result = document.getElementById("result");
 
 file.addEventListener("change", function () {
   const reader = new FileReader();
   reader.onload = function () {
     const lines = reader.result.split("\n");
     const map = lines[0].split(" ");
-    const sonda1 = new Sonda(
-      parseInt(lines[1].split(" ")[0]),
-      parseInt(lines[1].split(" ")[1]),
-      lines[1].split(" ")[2]
-    );
-    const sonda2 = new Sonda(
-      parseInt(lines[3].split(" ")[0]),
-      parseInt(lines[3].split(" ")[1]),
-      lines[3].split(" ")[2]
-    );
-    sonda1.executeInstructions(lines[2]);
-    sonda2.executeInstructions(lines[4]);
-    result.innerHTML = `<div class="red">${sonda1.x} ${sonda1.y} ${sonda1.direction} </div><br>
-    <div class="blue">
-  ${sonda2.x} ${sonda2.y} ${sonda2.direction}
-  </div>`;
+    const sondas = [];
+    for (let i = 1; i < lines.length - 1; i += 2) {
+      let sonda = new Sonda(
+        parseInt(lines[i].split(" ")[0]),
+        parseInt(lines[i].split(" ")[1]),
+        lines[i].split(" ")[2]
+      );
+      sonda.executeInstructions(lines[i + 1]);
+      sondas.push(sonda);
+    }
+
     // mostrar o mapa
     const mapa = document.getElementById("map");
     mapa.classList.remove("hidden");
@@ -91,58 +85,38 @@ file.addEventListener("change", function () {
     mapa.style.width = `${parseInt(map[0]) * 50}px`;
     mapa.style.height = `${parseInt(map[1]) * 50}px`;
 
-    // criar o grid do mapa
-    const square = document.createElement("div");
-    square.style.width = "100%";
-    square.style.height = "100%";
-    square.style.position = "absolute";
-    square.style.top = "0";
-    square.style.left = "0";
-    square.style.backgroundImage =
-      "linear-gradient(90deg, #000 1px, transparent 1px), linear-gradient(#000 1px, transparent 1px)";
-    square.style.backgroundSize = "50px 50px, 50px 50px";
-    mapa.appendChild(square);
+    // definir a posição das sondas
+    for (let i = 0; i < sondas.length; i++) {
+      const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      const hoverResult = document.createElement("div");
+      hoverResult.style.backgroundColor = color;
+      hoverResult.innerHTML = `${sondas[i].x} ${sondas[i].y} ${sondas[i].direction} <br>`;
 
-    // definir a posição da sonda 1
-    const hover1 = document.getElementById("hover1");
-    hover1.style.left = `${(sonda1.x - 1) * 50}px`; // 50px é o tamanho de cada quadrado, o -1 é para que a sonda fique no centro do quadrado
-    hover1.style.bottom = `${(sonda1.y - 1) * 50}px`;
-
-    // definir a posição da sonda 2
-    const hover2 = document.getElementById("hover2");
-    hover2.style.left = `${(sonda2.x - 1) * 50}px`;
-    hover2.style.bottom = `${(sonda2.y - 1) * 50}px`;
-
-    // definir a rotação da sonda 1
-    switch (sonda1.direction) {
-      case "N":
-        hover1.style.transform = "rotate(0deg)";
-        break;
-      case "E":
-        hover1.style.transform = "rotate(90deg)";
-        break;
-      case "S":
-        hover1.style.transform = "rotate(180deg)";
-        break;
-      case "W":
-        hover1.style.transform = "rotate(270deg)";
-        break;
-    }
-
-    // definir a rotação da sonda 2
-    switch (sonda2.direction) {
-      case "N":
-        hover2.style.transform = "rotate(0deg)";
-        break;
-      case "E":
-        hover2.style.transform = "rotate(90deg)";
-        break;
-      case "S":
-        hover2.style.transform = "rotate(180deg)";
-        break;
-      case "W":
-        hover2.style.transform = "rotate(270deg)";
-        break;
+      const hover = document.createElement("img");
+      hover.style.position = "absolute";
+      hover.style.width = "50px";
+      hover.style.height = "50px";
+      hover.style.left = `${(sondas[i].x - 1) * 50}px`;
+      hover.style.bottom = `${(sondas[i].y - 1) * 50}px`;
+      hover.style.backgroundColor = color;
+      hover.src = "sonda.png";
+      hover.id = `hover${i + 1}`;
+      switch (sondas[i].direction) {
+        case "N":
+          hover.style.transform = "rotate(0deg)";
+          break;
+        case "E":
+          hover.style.transform = "rotate(90deg)";
+          break;
+        case "S":
+          hover.style.transform = "rotate(180deg)";
+          break;
+        case "W":
+          hover.style.transform = "rotate(270deg)";
+          break;
+      }
+      document.getElementById("map").appendChild(hover);
+      document.getElementById("result").appendChild(hoverResult);
     }
   };
   reader.readAsText(file.files[0]);

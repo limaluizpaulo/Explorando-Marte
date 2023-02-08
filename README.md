@@ -4,7 +4,10 @@
   <a href="https://luizpaulo.eng.br" target="_blank">
   </a>
 </p>
-![image](https://user-images.githubusercontent.com/61104411/217400576-9f58f5f2-ffc8-4754-a825-f32e9c9e680a.png)
+
+
+![image](https://user-images.githubusercontent.com/61104411/217400699-949d8b5c-b013-43c0-ac08-a8cd130865ca.png)
+
 
 
 

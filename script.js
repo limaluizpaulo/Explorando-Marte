@@ -49,6 +49,10 @@ class Sonda {
         this.turn(instruction);
       } else if (instruction === "M") {
         this.move();
+      } else {
+        console.log(
+          `Foto Tirada na posição ${this.x} ${this.y} ${this.direction}`
+        );
       }
     }
   }

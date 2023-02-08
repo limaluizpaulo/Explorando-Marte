@@ -1,6 +1,7 @@
 body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     background-image: url('bg.jpg');
     background-size: cover;
@@ -20,7 +21,7 @@ h2 {
     font-size: 14px;
     font-weight: bold;
     margin: 0;
-    color: #666;
+    color: #ffffff;
 }
 
 .form {
@@ -28,33 +29,39 @@ h2 {
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
-    background-color: #fff;
+    background-color: #df3400c7;
     padding: 20px;
+    border-radius: 5px;
 }
 
 input {
     margin: 10px 0;
     padding: 10px;
-    font-size: 20px;
-
+    font-size: 15px;
     border-radius: 5px;
 }
 
 #map {
-    width: 600px;
-    height: 600px;
     background-image: url('mars.png');
     background-size: cover;
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
+    margin-left: 20px;
 }
 
 #result {
-    color: red;
-    background-color: #fff;
-    padding: 30px;
-    margin: 10px 0;
+    background-color: #ffffff96;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.red {
+    background-color: red;
+    padding: 10px;
+}
+
+.blue {
+    background-color: blue;
+    padding: 10px;
 }
 
 

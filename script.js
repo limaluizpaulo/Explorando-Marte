@@ -75,8 +75,10 @@ file.addEventListener("change", function () {
     );
     sonda1.executeInstructions(lines[2]);
     sonda2.executeInstructions(lines[4]);
-    result.innerHTML = `${sonda1.x} ${sonda1.y} ${sonda1.direction} <br>
-  ${sonda2.x} ${sonda2.y} ${sonda2.direction}`;
+    result.innerHTML = `<div class="red">${sonda1.x} ${sonda1.y} ${sonda1.direction} </div><br>
+    <div class="blue">
+  ${sonda2.x} ${sonda2.y} ${sonda2.direction}
+  </div>`;
     // mostrar o mapa
     const mapa = document.getElementById("map");
     mapa.classList.remove("hidden");
